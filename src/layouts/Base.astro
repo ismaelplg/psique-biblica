@@ -1,0 +1,68 @@
+---
+import '../styles/global.css';
+import { Image } from 'astro:assets';
+import logo from '../assets/logo-wide.png';
+import { site } from '../site.config';
+
+interface Props {
+  title: string;
+  description?: string;
+  type?: 'website' | 'article';
+  image?: string;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+const { title, description = site.description, type = 'website', image = site.ogImage, jsonLd } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(image, Astro.site);
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title={site.name} href="/rss.xml" />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content={site.locale} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  </head>
+  <body>
+    <header class="topnav">
+      <div class="container topnav-inner">
+        <a class="logo" href="/" aria-label={site.name}><Image src={logo} alt={site.name} height={44} densities={[1, 2]} loading="eager" /></a>
+        <nav aria-label="Principal">
+          <a href="/#servicios">Servicios</a>
+          <a href="/#proceso">Cómo funciona</a>
+          <a href="/#enfoque">Enfoque</a>
+          <a href="/#faq">Preguntas</a>
+          <a href="/blog/">Blog</a>
+        </nav>
+        <a class="btn btn-secondary" href={site.whatsapp} target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      </div>
+    </header>
+    <main id="content"><slot /></main>
+    <footer class="pagefoot">
+      <div class="container row-between">
+        <span>© {site.name} · {site.author} · {new Date().getFullYear()}</span>
+        <span class="row" style="gap: 20px;">
+          <a href={site.facebook} rel="noopener">Facebook</a>
+          <a href={site.instagram} rel="noopener">Instagram</a>
+          <a href={site.whatsapp} rel="noopener">WhatsApp</a>
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>

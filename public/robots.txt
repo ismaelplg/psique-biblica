@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://psiquebiblica.com/sitemap-index.xml

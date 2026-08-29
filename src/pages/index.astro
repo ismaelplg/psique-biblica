@@ -1,0 +1,181 @@
+---
+import Base from '../layouts/Base.astro';
+import { Image } from 'astro:assets';
+import profile from '../assets/profile.jpeg';
+import { site } from '../site.config';
+
+const faqs = [
+  ['¿Necesito ser cristiano para recibir consejería?', 'No. Cualquier persona puede agendar. Sí es importante que sepas que el enfoque parte de la Biblia y que hablaremos abiertamente de fe.'],
+  ['¿Es lo mismo que ir al psicólogo?', 'No. Aunque tengo formación en psicología, la consejería bíblica no es psicoterapia clínica ni sustituye tratamiento psiquiátrico. La tabla de arriba resume las diferencias.'],
+  ['¿Cuántas sesiones necesitaré?', 'Depende del caso. Muchas personas ven cambios en 6 a 10 sesiones; en matrimonio y adicciones el proceso suele ser más largo. Lo revisamos juntos desde la primera cita.'],
+  ['¿Cómo se paga?', 'Transferencia o depósito en México; PayPal para el extranjero. El pago se realiza antes de la sesión y recibes confirmación por WhatsApp.'],
+  ['¿Es confidencial?', 'Sí. Lo que se habla en sesión no se comparte con nadie, salvo riesgo grave para tu vida o la de otra persona, o que tú pidas involucrar a tu pastor.'],
+];
+
+const areas = ['Problemas matrimoniales', 'Infidelidad', 'Inmoralidad sexual', 'Pornografía', 'Depresión', 'Ansiedad', 'Adicciones', 'Duelo', 'Crianza', 'Culpa y vergüenza', 'Ira', 'Temor'];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: site.name,
+    description: site.description,
+    url: site.url,
+    founder: { '@type': 'Person', name: site.author, jobTitle: 'Consejero bíblico' },
+    areaServed: ['MX', 'International'],
+    availableLanguage: 'es',
+    priceRange: '$500 MXN - $700 MXN',
+    sameAs: [site.facebook, site.instagram],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+  },
+];
+---
+<Base title="Consejería bíblica online con el Pastor Mario González · Psique Bíblica" jsonLd={jsonLd}>
+  <section class="section">
+    <div class="container hero-split">
+      <div>
+        <p class="eyebrow">Consejería bíblica online · México e internacional</p>
+        <h1>Consejería centrada en la Palabra, con formación en psicología.</h1>
+        <p class="lead" style="margin-top: 20px;">Sesiones por Google Meet para personas, parejas y familias que buscan respuestas bíblicas a la ansiedad, la depresión, el matrimonio y las adicciones.</p>
+        <div class="hero-cta" style="margin-top: 28px;">
+          <a class="btn btn-primary" href={site.calendly} target="_blank" rel="noopener">Agendar primera sesión</a>
+          <a class="btn btn-ghost btn-arrow" href="#proceso">Ver cómo funciona</a>
+        </div>
+        <div class="cred-row" style="margin-top: 32px;">
+          <span>Lic. en Psicología</span>
+          <span>Mtr. en Teología Expositiva</span>
+          <span>Consejero pastoral</span>
+          <span>Candidato a certificación ACBC</span>
+        </div>
+      </div>
+      <Image class="portrait" src={profile} alt="Retrato del Pastor Mario González" widths={[480, 800, 1024]} sizes="(max-width: 920px) 100vw, 420px" loading="eager" fetchpriority="high" />
+    </div>
+  </section>
+
+  <section class="section" id="servicios">
+    <div class="container stack" style="gap: 40px;">
+      <div class="row-between" style="align-items: end; flex-wrap: wrap;">
+        <div style="max-width: 40ch;">
+          <p class="eyebrow">Servicios y precios</p>
+          <h2>Tres formatos. Un mismo enfoque.</h2>
+        </div>
+        <div class="seg" role="group" aria-label="Moneda" id="currency-toggle">
+          <button type="button" data-cur="mxn" aria-pressed="true">Nacional · MXN</button>
+          <button type="button" data-cur="usd" aria-pressed="false">Internacional · USD</button>
+        </div>
+      </div>
+      <div class="grid-3">
+        <article class="card interactive">
+          <p class="eyebrow">Individual · 60 min</p>
+          <h3 style="margin-top: 12px;">Consejería personal</h3>
+          <p style="color: var(--muted); margin: 8px 0 24px;">Ansiedad, depresión, culpa, pornografía y hábitos que no logras dejar. Un espacio confidencial para trabajar desde las Escrituras.</p>
+          <div class="price"><span data-mxn="$500" data-usd="$30">$500</span><small data-unit>MXN / sesión</small></div>
+        </article>
+        <article class="card interactive">
+          <p class="eyebrow">Pareja · 120 min</p>
+          <h3 style="margin-top: 12px;">Consejería matrimonial</h3>
+          <p style="color: var(--muted); margin: 8px 0 24px;">Conflictos, comunicación, infidelidad y restauración. Sesión doble para que ambos tengan tiempo de hablar y ser escuchados.</p>
+          <div class="price"><span data-mxn="$700" data-usd="$40">$700</span><small data-unit>MXN / sesión</small></div>
+        </article>
+        <article class="card interactive">
+          <p class="eyebrow">Familia · a convenir</p>
+          <h3 style="margin-top: 12px;">Consejería familiar</h3>
+          <p style="color: var(--muted); margin: 8px 0 24px;">Padres e hijos, crianza, duelo y crisis familiares. La duración y el costo dependen del número de participantes.</p>
+          <div class="price"><span>Cotización</span><small>por WhatsApp</small></div>
+        </article>
+      </div>
+      <p class="note">Pago previo a la sesión. Todas las sesiones son por videollamada en Google Meet; no se requiere instalar nada.</p>
+    </div>
+  </section>
+
+  <section class="section" id="proceso">
+    <div class="container grid-1-2">
+      <div>
+        <p class="eyebrow">Cómo funciona</p>
+        <h2>De la primera cita a un plan de trabajo.</h2>
+        <p class="lead" style="margin-top: 16px;">Sin formularios largos ni listas de espera. La primera sesión suele agendarse en menos de una semana.</p>
+      </div>
+      <div>
+        <div class="step"><span class="num">01</span><div><h3>Elige día y hora</h3><p>Agenda directamente en el <a href={site.calendly} target="_blank" rel="noopener" style="text-decoration: underline;">calendario</a> y recibe el enlace de Google Meet en tu correo.</p></div></div>
+        <div class="step"><span class="num">02</span><div><h3>Primera sesión: escuchar y entender</h3><p>Cuentas tu situación con calma. Identificamos juntos el problema real y lo que dice la Escritura al respecto.</p></div></div>
+        <div class="step"><span class="num">03</span><div><h3>Plan y tareas entre sesiones</h3><p>Cada encuentro termina con pasos concretos: lecturas, oración dirigida y ejercicios prácticos para la semana.</p></div></div>
+        <div class="step"><span class="num">04</span><div><h3>Frecuencia según la necesidad</h3><p>Normalmente semanal al inicio y quincenal después. Si asistes a una iglesia, podemos coordinar con tu pastor si tú lo deseas.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="enfoque">
+    <div class="container">
+      <div style="max-width: 44ch; margin-bottom: 48px;">
+        <p class="eyebrow">Enfoque</p>
+        <h2>¿En qué se diferencia de la psicología convencional?</h2>
+        <p class="lead" style="margin-top: 16px;">La consejería bíblica expone las verdades centrales del evangelio y las aplica a tu situación. La formación clínica ayuda a escuchar mejor; la autoridad final es la Escritura.</p>
+      </div>
+      <table class="ds-table">
+        <thead><tr><th>Aspecto</th><th>Consejería bíblica</th><th>Psicología secular</th></tr></thead>
+        <tbody>
+          <tr><td>Fuente de autoridad</td><td>La Biblia como Palabra suficiente</td><td>Teorías y modelos terapéuticos</td></tr>
+          <tr><td>Diagnóstico del problema</td><td>Corazón, pecado y sufrimiento en un mundo caído</td><td>Conducta, cognición y entorno</td></tr>
+          <tr><td>Meta del proceso</td><td>Semejanza a Cristo y reconciliación</td><td>Bienestar y funcionamiento personal</td></tr>
+          <tr><td>Rol del consejero</td><td>Pastor y hermano que acompaña</td><td>Profesional neutral</td></tr>
+          <tr><td>Rol de la iglesia</td><td>Parte del proceso de cuidado</td><td>Externa al tratamiento</td></tr>
+        </tbody>
+      </table>
+      <p class="note" style="margin-top: 16px;">Si presentas riesgo para tu vida o necesitas medicación, te orientaré a un psiquiatra y podemos trabajar en paralelo.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-1-2">
+      <div>
+        <p class="eyebrow">Áreas de trabajo</p>
+        <h2>Temas que se atienden con más frecuencia.</h2>
+      </div>
+      <div class="tags">{areas.map((a) => <span class="tag">{a}</span>)}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 800px;">
+      <div class="quote-mark">"</div>
+      <blockquote class="quote">[Testimonio real de un consultante · sustituir por uno de los tres del sitio actual]</blockquote>
+      <p class="quote-author">— Nombre o iniciales · ciudad · tipo de consejería</p>
+    </div>
+  </section>
+
+  <section class="section faq" id="faq">
+    <div class="container grid-1-2">
+      <div>
+        <p class="eyebrow">Preguntas frecuentes</p>
+        <h2>Lo que la gente pregunta antes de agendar.</h2>
+      </div>
+      <div>{faqs.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}</div>
+    </div>
+  </section>
+
+  <section class="section" style="text-align: center;">
+    <div class="container" style="max-width: 620px;">
+      <p class="verse" style="margin: 0 auto 24px; max-width: 34ch;">«Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar.» <span class="meta">Mateo 11:28</span></p>
+      <h2>Da el primer paso hoy.</h2>
+      <p class="lead" style="margin: 16px auto 32px;">Elige un horario y hablemos. Primera sesión individual desde $500 MXN / $30 USD.</p>
+      <a class="btn btn-primary" href={site.calendly} target="_blank" rel="noopener">Agendar en el calendario</a>
+    </div>
+  </section>
+</Base>
+
+<script>
+  // ponytail: currency toggle only; no framework
+  const seg = document.getElementById('currency-toggle')!;
+  seg.addEventListener('click', (e) => {
+    const b = (e.target as HTMLElement).closest<HTMLButtonElement>('button[data-cur]');
+    if (!b) return;
+    const cur = b.dataset.cur as 'mxn' | 'usd';
+    seg.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    document.querySelectorAll<HTMLElement>('[data-mxn]').forEach((el) => (el.textContent = el.dataset[cur] ?? ''));
+    document.querySelectorAll('[data-unit]').forEach((el) => (el.textContent = cur.toUpperCase() + ' / sesión'));
+  });
+</script>

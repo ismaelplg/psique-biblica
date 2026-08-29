@@ -1,0 +1,35 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { site } from '../../site.config';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+const fmt = (d: Date) => d.toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' });
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.pubDate.toISOString(),
+  dateModified: (post.data.updatedDate ?? post.data.pubDate).toISOString(),
+  author: { '@type': 'Person', name: site.author },
+  publisher: { '@type': 'Organization', name: site.name },
+  mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).href,
+};
+---
+<Base title={`${post.data.title} · ${site.name}`} description={post.data.description} type="article" jsonLd={jsonLd}>
+  <article class="section">
+    <div class="container prose">
+      <p class="meta"><a href="/blog/">← Blog</a> · <time datetime={post.data.pubDate.toISOString()}>{fmt(post.data.pubDate)}</time></p>
+      <h1 style="font-size: var(--fs-h2); margin-top: 12px;">{post.data.title}</h1>
+      <p class="lead" style="margin-top: 12px;">{post.data.description}</p>
+      <Content />
+      <p style="margin-top: var(--gap-xl);"><a class="btn btn-primary" href={site.calendly} target="_blank" rel="noopener">Agendar primera sesión</a></p>
+    </div>
+  </article>
+</Base>
