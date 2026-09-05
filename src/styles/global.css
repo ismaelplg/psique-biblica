@@ -129,6 +129,8 @@ h1, h2, h3, h4 { text-wrap: balance; }
 .btn-primary:hover { background: color-mix(in oklch, var(--accent) 88%, black); }
 .btn-secondary { background: transparent; color: var(--fg); border-color: var(--border); }
 .btn-secondary:hover { border-color: var(--fg); }
+.btn-whatsapp { background: #25d366; color: #fff; border-color: #25d366; }
+.btn-whatsapp:hover { background: #1da851; border-color: #1da851; }
 .btn-ghost { background: transparent; color: var(--fg); border-color: transparent; padding-inline: 8px; }
 .btn-ghost:hover { color: var(--accent); }
 .btn-arrow::after { content: '→'; transition: transform 0.15s ease; }
