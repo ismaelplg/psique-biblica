@@ -24,7 +24,6 @@ const jsonLd = [
     founder: { '@type': 'Person', name: site.author, jobTitle: 'Consejero bíblico' },
     areaServed: ['MX', 'International'],
     availableLanguage: 'es',
-    priceRange: '$500 MXN - $700 MXN',
     sameAs: [site.facebook, site.instagram],
   },
   {
@@ -58,37 +57,35 @@ const jsonLd = [
 
   <section class="section" id="servicios">
     <div class="container stack" style="gap: 40px;">
-      <div class="row-between" style="align-items: end; flex-wrap: wrap;">
-        <div style="max-width: 40ch;">
-          <p class="eyebrow">Servicios y precios</p>
-          <h2>Tres formatos. Un mismo enfoque.</h2>
-        </div>
-        <div class="seg" role="group" aria-label="Moneda" id="currency-toggle">
-          <button type="button" data-cur="mxn" aria-pressed="true">Nacional · MXN</button>
-          <button type="button" data-cur="usd" aria-pressed="false">Internacional · USD</button>
-        </div>
+      <div style="max-width: 40ch;">
+        <p class="eyebrow">Servicios</p>
+        <h2>Tres formatos. Un mismo enfoque.</h2>
       </div>
       <div class="grid-3">
         <article class="card interactive">
           <p class="eyebrow">Individual · 60 min</p>
           <h3 style="margin-top: 12px;">Consejería personal</h3>
           <p style="color: var(--muted); margin: 8px 0 24px;">Ansiedad, depresión, culpa, pornografía y hábitos que no logras dejar. Un espacio confidencial para trabajar desde las Escrituras.</p>
-          <div class="price"><span data-mxn="$500" data-usd="$30">$500</span><small data-unit>MXN / sesión</small></div>
+          <a class="btn btn-secondary" href={site.whatsapp} target="_blank" rel="noopener">Pedir información</a>
         </article>
         <article class="card interactive">
           <p class="eyebrow">Pareja · 120 min</p>
           <h3 style="margin-top: 12px;">Consejería matrimonial</h3>
           <p style="color: var(--muted); margin: 8px 0 24px;">Conflictos, comunicación, infidelidad y restauración. Sesión doble para que ambos tengan tiempo de hablar y ser escuchados.</p>
-          <div class="price"><span data-mxn="$700" data-usd="$40">$700</span><small data-unit>MXN / sesión</small></div>
+          <a class="btn btn-secondary" href={site.whatsapp} target="_blank" rel="noopener">Pedir información</a>
         </article>
         <article class="card interactive">
           <p class="eyebrow">Familia · a convenir</p>
           <h3 style="margin-top: 12px;">Consejería familiar</h3>
           <p style="color: var(--muted); margin: 8px 0 24px;">Padres e hijos, crianza, duelo y crisis familiares. La duración y el costo dependen del número de participantes.</p>
-          <div class="price"><span>Cotización</span><small>por WhatsApp</small></div>
+          <a class="btn btn-secondary" href={site.whatsapp} target="_blank" rel="noopener">Pedir información</a>
         </article>
       </div>
-      <p class="note">Pago previo a la sesión. Todas las sesiones son por videollamada en Google Meet; no se requiere instalar nada.</p>
+      <div class="card stack" style="max-width: 72ch;">
+        <p class="lead">La consejería bíblica es un servicio profesional con costo. Cada proceso requiere tiempo, dedicación y trabajo más allá de la sesión, así como un acompañamiento personalizado de acuerdo con las necesidades de cada persona.</p>
+        <p style="color: var(--muted);">Las tarifas varían según el tipo de consejería y modalidad. Todas las sesiones son por videollamada en Google Meet; no se requiere instalar nada.</p>
+        <div><a class="btn btn-primary" href={site.whatsapp} target="_blank" rel="noopener">Solicitar información sobre tarifas y disponibilidad</a></div>
+      </div>
     </div>
   </section>
 
@@ -161,21 +158,9 @@ const jsonLd = [
     <div class="container" style="max-width: 620px;">
       <p class="verse" style="margin: 0 auto 24px; max-width: 34ch;">«Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar.» <span class="meta">Mateo 11:28</span></p>
       <h2>Da el primer paso hoy.</h2>
-      <p class="lead" style="margin: 16px auto 32px;">Elige un horario y hablemos. Primera sesión individual desde $500 MXN / $30 USD.</p>
+      <p class="lead" style="margin: 16px auto 32px;">Elige un horario y hablemos. La primera sesión suele agendarse en menos de una semana.</p>
       <a class="btn btn-primary" href={site.calendly} target="_blank" rel="noopener">Agendar en el calendario</a>
     </div>
   </section>
 </Base>
 
-<script>
-  // ponytail: currency toggle only; no framework
-  const seg = document.getElementById('currency-toggle')!;
-  seg.addEventListener('click', (e) => {
-    const b = (e.target as HTMLElement).closest<HTMLButtonElement>('button[data-cur]');
-    if (!b) return;
-    const cur = b.dataset.cur as 'mxn' | 'usd';
-    seg.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-    document.querySelectorAll<HTMLElement>('[data-mxn]').forEach((el) => (el.textContent = el.dataset[cur] ?? ''));
-    document.querySelectorAll('[data-unit]').forEach((el) => (el.textContent = cur.toUpperCase() + ' / sesión'));
-  });
-</script>
