@@ -9,7 +9,7 @@ const faqs = [
   ['¿Es lo mismo que ir al psicólogo?', 'No. Aunque tengo formación en psicología, la consejería bíblica no es psicoterapia clínica ni sustituye tratamiento psiquiátrico. La tabla de arriba resume las diferencias.'],
   ['¿Cuántas sesiones necesitaré?', 'Depende del caso. Muchas personas ven cambios en 6 a 10 sesiones; en matrimonio y adicciones el proceso suele ser más largo. Lo revisamos juntos desde la primera cita.'],
   ['¿Cómo se paga?', 'Transferencia o depósito en México, o con tarjeta de débito o crédito. El pago se realiza antes de la sesión y recibes confirmación por WhatsApp.'],
-  ['¿Es confidencial?', 'Sí. Lo que se habla en sesión no se comparte con nadie, salvo riesgo grave para tu vida o la de otra persona, o que tú pidas involucrar a tu pastor.'],
+  ['¿Es confidencial?', 'Sí. Lo que se habla en sesión no se comparte con nadie, salvo riesgo grave para tu vida o la de otra persona, o que tú pidas involucrar a tu pastor. Puedes revisar nuestras condiciones de confidencialidad <a href="#" style="text-decoration: underline;">aquí</a>.'],
 ];
 
 const areas = ['Problemas matrimoniales', 'Infidelidad', 'Inmoralidad sexual', 'Pornografía', 'Depresión', 'Ansiedad', 'Adicciones', 'Duelo', 'Crianza', 'Culpa y vergüenza', 'Ira', 'Temor', 'Sufrimiento', 'Entre otros desórdenes del corazón'];
@@ -29,7 +29,7 @@ const jsonLd = [
   {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+    mainEntity: faqs.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a.replace(/<[^>]+>/g, '') } })),
   },
 ];
 ---
@@ -150,7 +150,7 @@ const jsonLd = [
         <p class="eyebrow">Preguntas frecuentes</p>
         <h2>Lo que la gente pregunta antes de agendar.</h2>
       </div>
-      <div>{faqs.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}</div>
+      <div>{faqs.map(([q, a]) => <details><summary>{q}</summary><p set:html={a} /></details>)}</div>
     </div>
   </section>
 
