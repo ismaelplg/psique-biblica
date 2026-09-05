@@ -3,7 +3,7 @@ export const site = {
   name: 'Psique Bíblica',
   author: 'Pastor Mario González',
   description:
-    'Consejería bíblica online por Google Meet para personas, parejas y familias. Ansiedad, depresión, matrimonio y adicciones desde las Escrituras.',
+    'Psicólogo cristiano y consejero bíblico en español. Consejería bíblica online por Google Meet para hispanos en Estados Unidos y México: ansiedad, depresión, matrimonio, adicciones y otras luchas del corazón.',
   url: 'https://psiquebiblica.com',
   locale: 'es_MX',
   calendly: 'https://calendly.com/psiquebiblica', // TODO: real Calendly URL

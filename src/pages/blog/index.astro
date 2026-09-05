@@ -7,7 +7,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
 );
 const fmt = (d: Date) => d.toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
-<Base title={`Blog · ${site.name}`} description="Artículos sobre consejería bíblica, ansiedad, matrimonio y vida cristiana.">
+<Base title={`Blog · ${site.name}`} description="Artículos de psicología cristiana y consejería bíblica en español: ansiedad, depresión, matrimonio, adicciones y vida cristiana.">
   <section class="section">
     <div class="container stack">
       <p class="eyebrow">Blog</p>

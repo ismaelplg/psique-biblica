@@ -21,9 +21,11 @@ const jsonLd = [
     name: site.name,
     description: site.description,
     url: site.url,
-    founder: { '@type': 'Person', name: site.author, jobTitle: 'Consejero bíblico' },
-    areaServed: ['MX', 'International'],
+    founder: { '@type': 'Person', name: site.author, jobTitle: 'Psicólogo cristiano y consejero bíblico' },
+    serviceType: ['Consejería bíblica', 'Consejería cristiana', 'Psicología cristiana', 'Consejería matrimonial', 'Consejería familiar'],
+    areaServed: ['US', 'MX'],
     availableLanguage: 'es',
+    knowsLanguage: 'es',
     sameAs: [site.facebook, site.instagram],
   },
   {
@@ -33,11 +35,11 @@ const jsonLd = [
   },
 ];
 ---
-<Base title="Consejería bíblica online con el Pastor Mario González · Psique Bíblica" jsonLd={jsonLd}>
+<Base title="Psicólogo cristiano y consejería bíblica en español · Psique Bíblica" jsonLd={jsonLd}>
   <section class="section">
     <div class="container hero-split">
       <div>
-        <p class="eyebrow">Consejería bíblica online · México e internacional</p>
+        <p class="eyebrow">Consejería bíblica en español · Estados Unidos y México</p>
         <h1>Consejería centrada en la Palabra de Dios</h1>
         <p class="lead" style="margin-top: 20px;">Sesiones por Google Meet para personas individuales, parejas y familias que buscan soluciones bíblicas a la ansiedad, la depresión, conflictos matrimoniales, infidelidad, pornografía, adicciones y distintas otras luchas del corazón.</p>
         <div class="hero-cta" style="margin-top: 28px;">
@@ -158,7 +160,7 @@ const jsonLd = [
     <div class="container" style="max-width: 620px;">
       <p class="verse" style="margin: 0 auto 24px; max-width: 34ch;">«Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar.» <span class="meta">Mateo 11:28</span></p>
       <h2>Da el primer paso hoy.</h2>
-      <p class="lead" style="margin: 16px auto 32px;">Cristo y su evangelio son la esperanza real de cambio. Elige un horario y hablemos.</p>
+      <p class="lead" style="margin: 16px auto 32px;">Cristo y su evangelio son la esperanza real de cambio. Consejería cristiana en español, estés en Estados Unidos, México o cualquier otro país. Elige un horario y hablemos.</p>
       <a class="btn btn-primary" href={site.calendly} target="_blank" rel="noopener">Agendar en el calendario</a>
     </div>
   </section>
