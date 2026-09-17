@@ -58,6 +58,22 @@ const jsonLd = [
     </div>
   </section>
 
+  <section class="section" id="proceso">
+    <div class="container grid-1-2">
+      <div>
+        <p class="eyebrow">Cómo funciona</p>
+        <h2>De la primera cita a un plan de trabajo</h2>
+        <p class="lead" style="margin-top: 16px;">No necesitas saber exactamente qué hacer ni llegar con un diagnóstico. Comenzamos escuchando tu situación y buscamos juntos comprenderla a la luz de las Escrituras.</p>
+      </div>
+      <div>
+        <div class="step"><span class="num">01</span><div><h3>Elige día y hora</h3><p>Ingresa al <a href={site.calendly} target="_blank" rel="noopener" style="text-decoration: underline;">calendario</a> y agenda tu primera sesión en el horario que mejor te convenga. Nosotros nos comunicaremos contigo por WhatsApp o correo para darte las siguientes instrucciones.</p></div></div>
+        <div class="step"><span class="num">02</span><div><h3>Primeras sesiones: escuchar y entender</h3><p>Comenzamos conociendo tu situación, tus luchas y las circunstancias que te han llevado a buscar ayuda, e identificamos juntos el problema real y lo que dice la Escritura al respecto.</p></div></div>
+        <div class="step"><span class="num">03</span><div><h3>Plan y tareas entre sesiones</h3><p>Cada encuentro termina con pasos concretos: lecturas, oración dirigida y ejercicios prácticos para que puedas seguir trabajando con Dios durante el tiempo entre consultas.</p></div></div>
+        <div class="step"><span class="num">04</span><div><h3>Frecuencia según la necesidad</h3><p>La frecuencia de las sesiones de consejería se determina de acuerdo con tu situación. Nuestro objetivo es dejar de ser necesarios lo antes posible. Si asistes a una iglesia, nos encantaría trabajar junto a tu pastor, si tú lo deseas.</p></div></div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="servicios">
     <div class="container stack" style="gap: 40px;">
       <div style="max-width: 40ch;">
@@ -93,19 +109,23 @@ const jsonLd = [
     </div>
   </section>
 
-  <section class="section" id="proceso">
+  <section class="section">
     <div class="container grid-1-2">
       <div>
-        <p class="eyebrow">Cómo funciona</p>
-        <h2>De la primera cita a un plan de trabajo</h2>
-        <p class="lead" style="margin-top: 16px;">No necesitas saber exactamente qué hacer ni llegar con un diagnóstico. Comenzamos escuchando tu situación y buscamos juntos comprenderla a la luz de las Escrituras.</p>
+        <p class="eyebrow">Áreas de trabajo</p>
+        <h2>Algunas de las luchas que podemos abordar</h2>
       </div>
-      <div>
-        <div class="step"><span class="num">01</span><div><h3>Elige día y hora</h3><p>Ingresa al <a href={site.calendly} target="_blank" rel="noopener" style="text-decoration: underline;">calendario</a> y agenda tu primera sesión en el horario que mejor te convenga. Nosotros nos comunicaremos contigo por WhatsApp o correo para darte las siguientes instrucciones.</p></div></div>
-        <div class="step"><span class="num">02</span><div><h3>Primeras sesiones: escuchar y entender</h3><p>Comenzamos conociendo tu situación, tus luchas y las circunstancias que te han llevado a buscar ayuda, e identificamos juntos el problema real y lo que dice la Escritura al respecto.</p></div></div>
-        <div class="step"><span class="num">03</span><div><h3>Plan y tareas entre sesiones</h3><p>Cada encuentro termina con pasos concretos: lecturas, oración dirigida y ejercicios prácticos para que puedas seguir trabajando con Dios durante el tiempo entre consultas.</p></div></div>
-        <div class="step"><span class="num">04</span><div><h3>Frecuencia según la necesidad</h3><p>La frecuencia de las sesiones de consejería se determina de acuerdo con tu situación. Nuestro objetivo es dejar de ser necesarios lo antes posible. Si asistes a una iglesia, nos encantaría trabajar junto a tu pastor, si tú lo deseas.</p></div></div>
-      </div>
+      <div class="tags">{areas.map((a) => <span class="tag">{a}</span>)}</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width: 800px;">
+      <p class="eyebrow">Testimonios</p>
+      <h2 style="margin-bottom: 40px;">Lo que otros han experimentado</h2>
+      <div class="quote-mark">"</div>
+      <blockquote class="quote">[Testimonio real de un consultante · sustituir por uno de los tres del sitio actual]</blockquote>
+      <p class="quote-author">— Nombre o iniciales · ciudad · tipo de consejería</p>
     </div>
   </section>
 
@@ -135,26 +155,6 @@ const jsonLd = [
     </div>
   </section>
 
-  <section class="section">
-    <div class="container grid-1-2">
-      <div>
-        <p class="eyebrow">Áreas de trabajo</p>
-        <h2>Algunas de las luchas que podemos abordar</h2>
-      </div>
-      <div class="tags">{areas.map((a) => <span class="tag">{a}</span>)}</div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container" style="max-width: 800px;">
-      <p class="eyebrow">Testimonios</p>
-      <h2 style="margin-bottom: 40px;">Lo que otros han experimentado</h2>
-      <div class="quote-mark">"</div>
-      <blockquote class="quote">[Testimonio real de un consultante · sustituir por uno de los tres del sitio actual]</blockquote>
-      <p class="quote-author">— Nombre o iniciales · ciudad · tipo de consejería</p>
-    </div>
-  </section>
-
   <section class="section" id="formacion">
     <div class="container grid-1-2">
       <div>
@@ -168,6 +168,15 @@ const jsonLd = [
         <p style="color: var(--muted);">La certificación de ACBC busca asegurar una preparación teológica sólida, integridad en la práctica y competencia para ejercer la consejería bíblica de acuerdo con los estándares establecidos por la organización.</p>
         <div><a class="btn btn-ghost btn-arrow" href="https://biblicalcounseling.com" target="_blank" rel="noopener">Conoce ACBC</a></div>
       </div>
+    </div>
+  </section>
+
+  <section class="section faq" id="faq">
+    <div class="container grid-1-2">
+      <div>
+        <h2>Preguntas frecuentes</h2>
+      </div>
+      <div>{faqs.map(([q, a]) => <details><summary>{q}</summary><p set:html={a} /></details>)}</div>
     </div>
   </section>
 
@@ -195,15 +204,6 @@ const jsonLd = [
         <p class="lead">Buscamos ampliar su alcance en el mundo hispanohablante, promover la formación y colaboración de consejeros bíblicos y desarrollar iniciativas que hagan posible que más personas reciban este acompañamiento sin ningún impedimento.</p>
         <p style="color: var(--muted);">Nuestro propósito es que los recursos de PSIQUE sirvan para llevar la consejería bíblica cada vez más lejos.</p>
       </div>
-    </div>
-  </section>
-
-  <section class="section faq" id="faq">
-    <div class="container grid-1-2">
-      <div>
-        <h2>Preguntas frecuentes</h2>
-      </div>
-      <div>{faqs.map(([q, a]) => <details><summary>{q}</summary><p set:html={a} /></details>)}</div>
     </div>
   </section>
 
