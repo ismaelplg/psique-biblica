@@ -56,7 +56,11 @@ const ogImage = new URL(image, Astro.site);
     <main id="content"><slot /></main>
     <footer class="pagefoot">
       <div class="container row-between">
-        <span>© {site.name} · {site.author} · {new Date().getFullYear()}</span>
+        <div class="stack" style="gap: 4px;">
+          <strong>PSIQUE Bíblica</strong>
+          <span>Consejería bíblica en español</span>
+          <span>{site.author} · {new Date().getFullYear()}</span>
+        </div>
         <span class="row" style="gap: 20px;">
           <a href={site.facebook} rel="noopener">Facebook</a>
           <a href={site.instagram} rel="noopener">Instagram</a>

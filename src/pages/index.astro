@@ -5,14 +5,15 @@ import profile from '../assets/profile.jpeg';
 import { site } from '../site.config';
 
 const faqs = [
-  ['¿Necesito ser cristiano para recibir consejería?', 'No. Cualquier persona puede agendar. Sí es importante que sepas que el enfoque parte de la Biblia y que hablaremos abiertamente de fe.'],
-  ['¿Es lo mismo que ir al psicólogo?', 'No. Aunque tengo formación en psicología, la consejería bíblica no es psicoterapia clínica ni sustituye tratamiento psiquiátrico. La tabla de arriba resume las diferencias.'],
-  ['¿Cuántas sesiones necesitaré?', 'Depende del caso. Muchas personas ven cambios en 6 a 10 sesiones; en matrimonio y adicciones el proceso suele ser más largo. Lo revisamos juntos desde la primera cita.'],
-  ['¿Cómo se paga?', 'Transferencia o depósito en México, o con tarjeta de débito o crédito. El pago se realiza antes de la sesión y recibes confirmación por WhatsApp.'],
-  ['¿Es confidencial?', 'Sí. Lo que se habla en sesión no se comparte con nadie, salvo riesgo grave para tu vida o la de otra persona, o que tú pidas involucrar a tu pastor. Puedes revisar nuestras condiciones de confidencialidad <a href="#" style="text-decoration: underline;">aquí</a>.'],
+  ['¿Necesito ser cristiano para recibir consejería?', 'No. Cualquier persona puede agendar. Sí es importante que sepas que el enfoque parte de la Biblia y que hablaremos abiertamente de la fe en Jesucristo.'],
+  ['¿La consejería bíblica es lo mismo que ir con un psicólogo cristiano?', 'No. Aunque tenemos formación en psicología, la consejería bíblica no es psicoterapia clínica y no mezcla la Palabra de Dios con las teorías, investigaciones o modelos terapéuticos. Tampoco tiene la intención de sustituir otras disciplinas de la salud. La sección <a href="#enfoque" style="text-decoration: underline;">Enfoque</a> explica algunas de las diferencias.'],
+  ['¿Cuántas sesiones necesitaré?', 'Depende del caso. Algunas situaciones pueden resolverse en pocas sesiones, mientras que otras requieren un acompañamiento más prolongado. Evaluamos la situación desde las primeras sesiones y ajustamos la frecuencia según la necesidad.'],
+  ['¿Cómo se realizan las sesiones?', 'Todas las sesiones son por videollamada mediante Google Meet. No necesitas instalar ningún programa especial.'],
+  ['¿Cómo se realiza el pago?', 'Los pagos se realizan mediante transferencia bancaria o depósito en México, o con tarjeta de débito o crédito. El pago se realiza antes de la sesión y recibirás confirmación por WhatsApp.'],
+  ['¿Lo que hablamos es confidencial?', 'Sí. Lo que se habla en sesión no se comparte con nadie, salvo en situaciones de riesgo grave para tu vida o la de otra persona, o cuando tú solicites involucrar a tu pastor o alguien más. Antes de iniciar tu proceso se te pedirá llenar un expediente y leer nuestros <a href="#" style="text-decoration: underline;">términos y condiciones</a>.'],
 ];
 
-const areas = ['Problemas matrimoniales', 'Infidelidad', 'Inmoralidad sexual', 'Pornografía', 'Depresión', 'Ansiedad', 'Adicciones', 'Duelo', 'Crianza', 'Culpa y vergüenza', 'Ira', 'Temor', 'Sufrimiento', 'Entre otros desórdenes del corazón'];
+const areas = ['Problemas matrimoniales', 'Infidelidad', 'Inmoralidad sexual', 'Pornografía', 'Depresión', 'Ansiedad', 'Adicciones', 'Duelo', 'Crianza', 'Culpa y vergüenza', 'Ira', 'Temor', 'Sufrimiento', 'Apatía espiritual', 'Malos hábitos y patrones destructivos', 'Entre otros desórdenes del corazón'];
 
 const jsonLd = [
   {
@@ -41,16 +42,16 @@ const jsonLd = [
       <div>
         <p class="eyebrow">Consejería bíblica en español · Estados Unidos y México</p>
         <h1>Consejería centrada en la Palabra de Dios</h1>
-        <p class="lead" style="margin-top: 20px;">Sesiones por Google Meet para personas individuales, parejas y familias que buscan soluciones bíblicas a la ansiedad, la depresión, conflictos matrimoniales, infidelidad, pornografía, adicciones y distintas otras luchas del corazón.</p>
+        <p class="lead" style="margin-top: 20px;">Sesiones online por Google Meet para personas individuales, parejas y familias que buscan respuestas bíblicas ante la ansiedad, la depresión, los conflictos matrimoniales, la infidelidad, la pornografía, las adicciones y distintas luchas del corazón.</p>
         <div class="hero-cta" style="margin-top: 28px;">
           <a class="btn btn-primary" href={site.calendly} target="_blank" rel="noopener">Agendar primera sesión</a>
           <a class="btn btn-ghost btn-arrow" href="#proceso">Ver cómo funciona</a>
         </div>
         <div class="cred-row" style="margin-top: 32px;">
           <span>Lic. en Psicología</span>
-          <span>Mtr. en Teología Expositiva</span>
-          <span>Consejero pastoral</span>
-          <span>Certificación ACBC (en proceso)</span>
+          <span>Mtr. en Teología Bíblica</span>
+          <span>Pastor Consejero</span>
+          <span>Consejero Bíblico certificado por la ACBC</span>
         </div>
       </div>
       <Image class="portrait" src={profile} alt="Retrato del Pastor Mario González" widths={[480, 800, 1024]} sizes="(max-width: 920px) 100vw, 420px" loading="eager" fetchpriority="high" />
@@ -61,31 +62,32 @@ const jsonLd = [
     <div class="container stack" style="gap: 40px;">
       <div style="max-width: 40ch;">
         <p class="eyebrow">Servicios</p>
-        <h2>Tres formatos. Un mismo enfoque.</h2>
+        <h2>Un acompañamiento para las luchas reales de la vida</h2>
       </div>
       <div class="grid-3">
         <article class="card interactive">
-          <p class="eyebrow">Individual · 60 min</p>
-          <h3 style="margin-top: 12px;">Consejería personal</h3>
-          <p style="color: var(--muted); margin: 8px 0 24px;">Ansiedad, depresión, culpa, pornografía y hábitos que no logras dejar. Un espacio confidencial para trabajar desde las Escrituras.</p>
+          <p class="eyebrow">60 minutos</p>
+          <h3 style="margin-top: 12px;">Consejería individual</h3>
+          <p style="color: var(--muted); margin: 8px 0 24px;">Ansiedad, depresión, culpa, ira, pornografía, adicciones y hábitos que no logras dejar. Un espacio confidencial para trabajar desde las Escrituras.</p>
           <a class="btn btn-secondary" href={site.whatsapp} target="_blank" rel="noopener">Pedir información</a>
         </article>
         <article class="card interactive">
-          <p class="eyebrow">Pareja · 120 min</p>
+          <p class="eyebrow">120 minutos</p>
           <h3 style="margin-top: 12px;">Consejería matrimonial</h3>
-          <p style="color: var(--muted); margin: 8px 0 24px;">Conflictos, comunicación, infidelidad y restauración. Sesión doble para que ambos tengan tiempo de hablar y ser escuchados.</p>
+          <p style="color: var(--muted); margin: 8px 0 24px;">Conflictos, comunicación, infidelidad y restauración. Una sesión más amplia de consejería de pareja donde ambos tengan tiempo de hablar, ser escuchados y trabajar juntos.</p>
           <a class="btn btn-secondary" href={site.whatsapp} target="_blank" rel="noopener">Pedir información</a>
         </article>
         <article class="card interactive">
-          <p class="eyebrow">Familia · a convenir</p>
+          <p class="eyebrow">Duración a convenir</p>
           <h3 style="margin-top: 12px;">Consejería familiar</h3>
-          <p style="color: var(--muted); margin: 8px 0 24px;">Padres e hijos, crianza, duelo y crisis familiares. La duración y el costo dependen del número de participantes.</p>
+          <p style="color: var(--muted); margin: 8px 0 24px;">Padres e hijos, crianza, duelo y crisis familiares. Sesiones de consejería pensadas para trabajar junto a los integrantes de la familia.</p>
           <a class="btn btn-secondary" href={site.whatsapp} target="_blank" rel="noopener">Pedir información</a>
         </article>
       </div>
-      <div class="card stack" style="max-width: 72ch;">
+      <div class="card stack">
+        <h3>Un servicio profesional de consejería.</h3>
         <p class="lead">La consejería bíblica es un servicio profesional con costo. Cada proceso requiere tiempo, dedicación y trabajo más allá de la sesión, así como un acompañamiento personalizado de acuerdo con las necesidades de cada persona.</p>
-        <p style="color: var(--muted);">Las tarifas varían según el tipo de consejería y modalidad. Todas las sesiones son por videollamada en Google Meet; no se requiere instalar nada.</p>
+        <p style="color: var(--muted);">Las tarifas varían según el tipo de consejería y modalidad.<br>Todas las sesiones son por videollamada en Google Meet; no se requiere instalar nada.</p>
         <div><a class="btn btn-primary" href={site.whatsapp} target="_blank" rel="noopener">Solicitar información sobre tarifas y disponibilidad</a></div>
       </div>
     </div>
@@ -95,36 +97,41 @@ const jsonLd = [
     <div class="container grid-1-2">
       <div>
         <p class="eyebrow">Cómo funciona</p>
-        <h2>De la primera cita a un plan de trabajo.</h2>
-        <p class="lead" style="margin-top: 16px;">Sin formularios largos ni listas de espera. La primera sesión suele agendarse en menos de una semana.</p>
+        <h2>De la primera cita a un plan de trabajo</h2>
+        <p class="lead" style="margin-top: 16px;">No necesitas saber exactamente qué hacer ni llegar con un diagnóstico. Comenzamos escuchando tu situación y buscamos juntos comprenderla a la luz de las Escrituras.</p>
       </div>
       <div>
-        <div class="step"><span class="num">01</span><div><h3>Elige día y hora</h3><p>Agenda directamente en el <a href={site.calendly} target="_blank" rel="noopener" style="text-decoration: underline;">calendario</a> y recibe el enlace de Google Meet en tu correo y por WhatsApp.</p></div></div>
-        <div class="step"><span class="num">02</span><div><h3>Primeras sesiones: escuchar y entender</h3><p>Cuentas tu situación con calma. Identificamos juntos el problema real y lo que dice la Escritura al respecto.</p></div></div>
+        <div class="step"><span class="num">01</span><div><h3>Elige día y hora</h3><p>Ingresa al <a href={site.calendly} target="_blank" rel="noopener" style="text-decoration: underline;">calendario</a> y agenda tu primera sesión en el horario que mejor te convenga. Nosotros nos comunicaremos contigo por WhatsApp o correo para darte las siguientes instrucciones.</p></div></div>
+        <div class="step"><span class="num">02</span><div><h3>Primeras sesiones: escuchar y entender</h3><p>Comenzamos conociendo tu situación, tus luchas y las circunstancias que te han llevado a buscar ayuda, e identificamos juntos el problema real y lo que dice la Escritura al respecto.</p></div></div>
         <div class="step"><span class="num">03</span><div><h3>Plan y tareas entre sesiones</h3><p>Cada encuentro termina con pasos concretos: lecturas, oración dirigida y ejercicios prácticos para que puedas seguir trabajando con Dios durante el tiempo entre consultas.</p></div></div>
-        <div class="step"><span class="num">04</span><div><h3>Frecuencia según la necesidad</h3><p>Mi objetivo es dejar de ser necesario lo antes posible. La frecuencia se determina en la primera sesión. Si asistes a una iglesia, nos encantaría trabajar junto a tu pastor, si tú lo deseas.</p></div></div>
+        <div class="step"><span class="num">04</span><div><h3>Frecuencia según la necesidad</h3><p>La frecuencia de las sesiones de consejería se determina de acuerdo con tu situación. Nuestro objetivo es dejar de ser necesarios lo antes posible. Si asistes a una iglesia, nos encantaría trabajar junto a tu pastor, si tú lo deseas.</p></div></div>
       </div>
     </div>
   </section>
 
   <section class="section" id="enfoque">
     <div class="container">
-      <div style="max-width: 44ch; margin-bottom: 48px;">
+      <div style="max-width: 60ch; margin-bottom: 48px;">
         <p class="eyebrow">Enfoque</p>
-        <h2>¿En qué se diferencia de la psicología convencional?</h2>
-        <p class="lead" style="margin-top: 16px;">La consejería bíblica es el acto en el que un creyente interactúa con otro al exponer las verdades centrales del evangelio en las Escrituras, buscando que estas influyan en el corazón, en las luchas contra el pecado y en la vida diaria, con el fin de traer edificación, el fortalecimiento de la fe y la gloria a Dios.</p>
+        <h2>¿Consejería bíblica o psicología cristiana?</h2>
+        <p class="lead" style="margin-top: 16px;">¿Buscabas un psicólogo cristiano? Es importante que conozcas que nuestro enfoque es la consejería bíblica y cómo se distingue.</p>
+        <p class="lead" style="margin-top: 12px;">Aunque poseemos formación en psicología clínica, la consejería bíblica parte de la autoridad de las Escrituras y abarca un propósito diferente.</p>
       </div>
       <table class="ds-table">
-        <thead><tr><th>Metodología</th><th>Consejería bíblica</th><th>Psicología convencional</th></tr></thead>
+        <thead><tr><th></th><th>Consejería bíblica</th><th>Psicología convencional</th></tr></thead>
         <tbody>
-          <tr><td>Fuente de autoridad</td><td>La Biblia como Palabra suficiente</td><td>Teorías y modelos terapéuticos</td></tr>
-          <tr><td>Diagnóstico del problema</td><td>Busca abordar el problema de raíz (detrás de la conducta): desórdenes del corazón, pecado y sufrimiento en un mundo caído</td><td>Busca hacer cambios en la conducta y en el entorno</td></tr>
-          <tr><td>Meta del proceso</td><td>Glorificar a Dios a través de la edificación de sus hijos</td><td>Bienestar y funcionamiento personal</td></tr>
-          <tr><td>Rol del consejero</td><td>Discipulado por un pastor o hermano en la fe que acompaña</td><td>Profesional neutral</td></tr>
-          <tr><td>Rol de la iglesia</td><td>Es parte del proceso de cuidado</td><td>Normalmente externa al tratamiento</td></tr>
+          <tr><td>Autoridad</td><td>La Biblia como Palabra suficiente de Dios</td><td>Teorías, investigaciones y modelos terapéuticos</td></tr>
+          <tr><td>Comprensión del problema</td><td>Considera el corazón, el pecado, el sufrimiento y las circunstancias de una vida en un mundo caído</td><td>Busca comprender la conducta, las emociones, los pensamientos y su relación con distintos factores</td></tr>
+          <tr><td>Meta</td><td>Glorificar a Dios y crecer en semejanza a Cristo</td><td>Favorecer el bienestar y el funcionamiento de la persona</td></tr>
+          <tr><td>Acompañamiento</td><td>Un consejero bíblico que acompaña y aplica las Escrituras a la situación particular</td><td>Un profesional que aplica modelos y herramientas psicológicas</td></tr>
+          <tr><td>Iglesia</td><td>Puede formar parte activa del proceso de cuidado</td><td>Generalmente permanece fuera del proceso terapéutico</td></tr>
         </tbody>
       </table>
-      <p class="note" style="margin-top: 16px;">Si presentas riesgo para tu vida o necesitas medicación, te orientaré a un psiquiatra y podemos trabajar en paralelo.</p>
+      <p class="lead" style="max-width: 60ch; margin-top: 32px;">La consejería bíblica no pretende simplemente ayudarte a sentirte mejor. Busca ayudarte a entender tu situación a la luz de Dios y aprender a responder a ella de una manera que le glorifique.</p>
+      <div style="max-width: 60ch; margin-top: 32px;">
+        <h3>Una aclaración importante</h3>
+        <p style="color: var(--muted); margin-top: 8px;">La consejería bíblica no sustituye la atención médica cuando esta es necesaria. Si presentas riesgo para tu vida, necesitas atención de emergencia o requieres de un tratamiento de otro profesional de la salud, buscaremos orientarte hacia el profesional correspondiente y, cuando sea apropiado, podemos trabajar en paralelo.</p>
+      </div>
     </div>
   </section>
 
@@ -132,7 +139,7 @@ const jsonLd = [
     <div class="container grid-1-2">
       <div>
         <p class="eyebrow">Áreas de trabajo</p>
-        <h2>Temas que se atienden con más frecuencia.</h2>
+        <h2>Algunas de las luchas que podemos abordar</h2>
       </div>
       <div class="tags">{areas.map((a) => <span class="tag">{a}</span>)}</div>
     </div>
@@ -140,17 +147,61 @@ const jsonLd = [
 
   <section class="section">
     <div class="container" style="max-width: 800px;">
+      <p class="eyebrow">Testimonios</p>
+      <h2 style="margin-bottom: 40px;">Lo que otros han experimentado</h2>
       <div class="quote-mark">"</div>
       <blockquote class="quote">[Testimonio real de un consultante · sustituir por uno de los tres del sitio actual]</blockquote>
       <p class="quote-author">— Nombre o iniciales · ciudad · tipo de consejería</p>
     </div>
   </section>
 
+  <section class="section" id="formacion">
+    <div class="container grid-1-2">
+      <div>
+        <p class="eyebrow">Formación y certificación</p>
+        <h2>Una formación especializada en Consejería Bíblica</h2>
+      </div>
+      <div class="card stack">
+        <p class="eyebrow" style="opacity: 0.6;">[Logo de ACBC]</p>
+        <h3>Consejería Bíblica Certificada por la ACBC</h3>
+        <p style="color: var(--muted);">La Association of Certified Biblical Counselors (ACBC) es una organización dedicada a proporcionar formación, recursos y certificación para promover la excelencia y la integridad doctrinal en la consejería bíblica. Su proceso de certificación incluye formación, evaluación y supervisión de consejería.</p>
+        <p style="color: var(--muted);">La certificación de ACBC busca asegurar una preparación teológica sólida, integridad en la práctica y competencia para ejercer la consejería bíblica de acuerdo con los estándares establecidos por la organización.</p>
+        <div><a class="btn btn-ghost btn-arrow" href="https://biblicalcounseling.com" target="_blank" rel="noopener">Conoce ACBC</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="historia">
+    <div class="container grid-1-2">
+      <div>
+        <p class="eyebrow">Nuestra historia</p>
+        <h2>La historia detrás de PSIQUE</h2>
+      </div>
+      <div class="stack">
+        <p class="lead">PSIQUE nace de la convicción de que necesitamos la ayuda sobrenatural de Dios para enfrentar las dificultades de la vida y los problemas de nuestro corazón.</p>
+        <p style="color: var(--muted);">A lo largo de mi formación en psicología y experiencia acompañando a personas, comprendí que las herramientas de la sabiduría humana pueden ser útiles, pero no son suficientes para producir los cambios que necesitamos. No necesitamos solamente conocer nuevas herramientas; necesitamos aprender a vivir centrados en el evangelio de Jesucristo. Por eso, PSIQUE existe para acompañar a personas, parejas y familias a comprender sus luchas a la luz de las Escrituras y aprender a aplicar la verdad de Dios a la vida diaria.</p>
+        <p class="verse">Creemos que el evangelio de Cristo no solo es poder para salvación, sino también para transformación. <span class="meta">Romanos 1:16</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="vision">
+    <div class="container grid-1-2">
+      <div>
+        <p class="eyebrow">Nuestra visión</p>
+        <h2>Queremos que la consejería bíblica esté al alcance de más personas.</h2>
+      </div>
+      <div class="stack">
+        <p class="lead">Buscamos ampliar su alcance en el mundo hispanohablante, promover la formación y colaboración de consejeros bíblicos y desarrollar iniciativas que hagan posible que más personas reciban este acompañamiento sin ningún impedimento.</p>
+        <p style="color: var(--muted);">Nuestro propósito es que los recursos de PSIQUE sirvan para llevar la consejería bíblica cada vez más lejos.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="section faq" id="faq">
     <div class="container grid-1-2">
       <div>
-        <p class="eyebrow">Preguntas frecuentes</p>
-        <h2>Lo que la gente pregunta antes de agendar.</h2>
+        <h2>Preguntas frecuentes</h2>
       </div>
       <div>{faqs.map(([q, a]) => <details><summary>{q}</summary><p set:html={a} /></details>)}</div>
     </div>
@@ -159,9 +210,9 @@ const jsonLd = [
   <section class="section" style="text-align: center;">
     <div class="container" style="max-width: 620px;">
       <p class="verse" style="margin: 0 auto 24px; max-width: 34ch;">«Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar.» <span class="meta">Mateo 11:28</span></p>
-      <h2>Da el primer paso hoy.</h2>
-      <p class="lead" style="margin: 16px auto 32px;">Cristo y su evangelio son la esperanza real de cambio. Consejería cristiana en español, estés en Estados Unidos, México o cualquier otro país. Elige un horario y hablemos.</p>
-      <a class="btn btn-primary" href={site.calendly} target="_blank" rel="noopener">Agendar en el calendario</a>
+      <h2>Da el primer paso hoy</h2>
+      <p class="lead" style="margin: 16px auto 32px;">Cristo y su evangelio son la esperanza real de cambio.<br>Consejería bíblica en español, estés en Estados Unidos, México o cualquier otra parte del mundo.</p>
+      <a class="btn btn-primary" href={site.calendly} target="_blank" rel="noopener">Agendar primera sesión</a>
     </div>
   </section>
 </Base>
