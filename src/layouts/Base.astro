@@ -43,16 +43,26 @@ const ogImage = new URL(image, Astro.site);
     <header class="topnav">
       <div class="container topnav-inner">
         <a class="logo" href="/" aria-label={site.name}><Image src={logo} alt={site.name} height={44} densities={[1, 2]} loading="eager" /></a>
-        <nav aria-label="Principal">
+        <nav id="menu" aria-label="Principal">
           <a href="/#proceso">Cómo funciona</a>
           <a href="/#servicios">Servicios</a>
           <a href="/#enfoque">Enfoque</a>
-          <a href="/#faq">Preguntas</a>
+          <a href="/pastores/">Para pastores</a>
           <a href="/blog/">Blog</a>
         </nav>
-        <a class="btn btn-whatsapp" href={site.whatsapp} target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        <div class="row" style="gap: var(--gap-xs);">
+          <a class="btn btn-primary" href={site.booking} target="_blank" rel="noopener">Agendar sesión</a>
+          <button class="menu-toggle" type="button" aria-controls="menu" aria-expanded="false" aria-label="Menú">☰</button>
+        </div>
       </div>
     </header>
+    <script>
+      const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle')!;
+      const menu = document.getElementById('menu')!;
+      const setOpen = (open: boolean) => { menu.classList.toggle('open', open); toggle.setAttribute('aria-expanded', String(open)); };
+      toggle.addEventListener('click', () => setOpen(!menu.classList.contains('open')));
+      menu.addEventListener('click', (e) => { if ((e.target as Element).closest('a')) setOpen(false); });
+    </script>
     <main id="content"><slot /></main>
     <footer class="pagefoot">
       <div class="container row-between">
@@ -64,7 +74,7 @@ const ogImage = new URL(image, Astro.site);
         <span class="row" style="gap: 20px;">
           <a href={site.facebook} rel="noopener">Facebook</a>
           <a href={site.instagram} rel="noopener">Instagram</a>
-          <a href={site.whatsapp} rel="noopener">WhatsApp</a>
+          <a href={site.whatsapp} rel="noopener">WhatsApp {site.whatsappDisplay}</a>
         </span>
       </div>
     </footer>

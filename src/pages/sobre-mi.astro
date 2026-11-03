@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import { Image } from 'astro:assets';
+import profile from '../assets/profile.jpeg';
+import { site } from '../site.config';
+---
+<Base title={`Sobre mí · ${site.author} · ${site.name}`} description="Mario González, fundador y director de PSIQUE: pastor, licenciado en Psicología, maestro en Teología y consejero bíblico certificado por la ACBC.">
+  <section class="section">
+    <div class="container hero-split">
+      <div class="stack">
+        <p class="eyebrow">Sobre mí</p>
+        <h1 style="font-size: var(--fs-h2);">Mario González</h1>
+        <p class="lead">Mario González es fundador y director de PSIQUE, un ministerio que tiene la visión de bendecir a la iglesia hispanohablante poniendo a su alcance servicios competentes de consejería bíblica. Es pastor en la Iglesia Bautista Emanuel en Poza Rica, Veracruz, México.</p>
+        <p style="color: var(--muted);">Es licenciado en Psicología por la UANL, estudió consejería bíblica en el SEBAM en Querétaro, tiene una Maestría en Teología por la IUCLA y una certificación oficial como consejero bíblico por la ACBC. Está muy felizmente casado con su esposa y tienen una hermosa hija.</p>
+        <p style="color: var(--muted);">Puedes seguirlo a través de <a href={site.instagram} target="_blank" rel="noopener" style="text-decoration: underline;">Instagram</a> y <a href={site.facebook} target="_blank" rel="noopener" style="text-decoration: underline;">Facebook</a>.</p>
+        <div><a class="btn btn-primary" href={site.booking} target="_blank" rel="noopener">Agenda una reunión</a></div>
+      </div>
+      <Image class="portrait" src={profile} alt="Retrato del Pastor Mario González" widths={[480, 800]} sizes="(max-width: 920px) 100vw, 420px" />
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,72 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../site.config';
+
+const shareText = 'PSIQUE · Consejería bíblica en español';
+const enc = encodeURIComponent;
+const collaborate = `${site.whatsapp}?text=${enc('Hola, me gustaría proponer una colaboración con PSIQUE.')}`;
+---
+<Base title={`Sé parte de esta visión · ${site.name}`} description="Formas de apoyar a PSIQUE: compartir, organizar un taller de consejería bíblica, apoyar económicamente u orar por este ministerio.">
+  <section class="section">
+    <div class="container stack">
+      <p class="eyebrow">Nuestra visión</p>
+      <h1 style="font-size: var(--fs-h2);">Sé parte de esta visión</h1>
+      <p class="lead wide-text">Creemos que la iglesia local tiene un papel fundamental en el cuidado espiritual de las personas. En PSIQUE queremos contribuir a esta labor mediante la consejería bíblica, la capacitación y la colaboración con iglesias y personas que comparten esta convicción.</p>
+      <p style="color: var(--muted);">Hay distintas maneras en las que puedes participar.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="step"><span class="num">01</span><div class="stack">
+        <h3>Comparte PSIQUE con otras personas</h3>
+        <p>Quizá conoces a alguien que está atravesando una dificultad y necesita consejería bíblica. Puedes comenzar orando por esa persona y ayudándole a conocer nuestros servicios de acompañamiento bíblico, centrados en el evangelio de Jesucristo.</p>
+        <div><button class="btn btn-primary" type="button" id="share">Compartir PSIQUE</button></div>
+        <div class="row share-links" id="share-links" hidden>
+          <a class="btn btn-secondary" href={`https://wa.me/?text=${enc(`${shareText} ${site.url}`)}`} target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn-secondary" href={`https://www.facebook.com/sharer/sharer.php?u=${enc(site.url)}`} target="_blank" rel="noopener">Facebook</a>
+          <a class="btn btn-secondary" href={`mailto:?subject=${enc(shareText)}&body=${enc(site.url)}`}>Correo</a>
+          <button class="btn btn-secondary" type="button" id="copy">Copiar enlace</button>
+        </div>
+      </div></div>
+      <div class="step"><span class="num">02</span><div class="stack">
+        <h3>Organiza un taller de capacitación en consejería bíblica</h3>
+        <p>Creemos que la tarea de aconsejar bíblicamente es parte del ministerio de la iglesia local. Por eso, ofrecemos talleres y cursos de capacitación que buscan equipar a la iglesia para servir a las personas con la verdad de la Palabra de Dios de una manera cada vez más competente.</p>
+        <p>Si te interesa organizar un taller en tu iglesia o explorar alguna otra forma de colaboración, nos gustaría conversar contigo.</p>
+        <div><a class="btn btn-secondary" href={collaborate} target="_blank" rel="noopener">Proponer una colaboración</a></div>
+      </div></div>
+      <div class="step"><span class="num">03</span><div class="stack">
+        <h3>Apoya económicamente esta labor</h3>
+        <p>Tus aportaciones pueden contribuir al desarrollo de recursos y de iniciativas que faciliten el acceso a la consejería bíblica. Queremos administrar estos recursos con responsabilidad y destinarlos a proyectos que nos permitan seguir desarrollando esta labor.</p>
+        {site.gofundme && <div><a class="btn btn-secondary" href={site.gofundme} target="_blank" rel="noopener">Apóyanos a través de GoFundMe</a></div>}
+      </div></div>
+      <div class="step"><span class="num">04</span><div class="stack">
+        <h3>Ora por nosotros</h3>
+        <p>La oración del justo puede mucho (Santiago 5:16). Puedes acompañarnos en oración por las personas que reciben consejería, por quienes sirven en esta labor y por las oportunidades que Dios nos dé para seguir desarrollando este ministerio.</p>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="section" style="text-align: center;">
+    <div class="container" style="max-width: 620px;">
+      <h2>Para la extensión del reino de Dios</h2>
+      <p class="lead" style="margin: 16px auto 32px;">Anhelamos que más personas reciban acompañamiento bíblico y que las iglesias estén mejor equipadas para servir con la verdad de la Palabra de Dios. Gracias por contribuir, de distintas maneras, a este propósito.</p>
+      <p class="verse" style="margin: 0 auto; max-width: 34ch;">«Si, pues, coméis o bebéis, o hacéis otra cosa, hacedlo todo para la gloria de Dios». <span class="meta">1 Corintios 10:31</span></p>
+    </div>
+  </section>
+</Base>
+
+<script is:inline define:vars={{ url: site.url, text: shareText }}>
+  // ponytail: native share sheet on phones (includes Instagram); link buttons elsewhere
+  const links = document.getElementById('share-links');
+  document.getElementById('share').addEventListener('click', async () => {
+    if (navigator.share) {
+      try { await navigator.share({ title: 'PSIQUE', text, url }); return; } catch (e) { if (e.name === 'AbortError') return; }
+    }
+    links.hidden = !links.hidden;
+  });
+  const copy = document.getElementById('copy');
+  copy.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(url); copy.textContent = 'Enlace copiado'; } catch { prompt('Copia este enlace:', url); }
+  });
+</script>

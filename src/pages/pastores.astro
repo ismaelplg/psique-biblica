@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../site.config';
+
+const contact = `${site.whatsapp}?text=${encodeURIComponent('Hola, soy pastor y me gustaría conversar sobre PSIQUE.')}`;
+---
+<Base title={`Para pastores · ${site.name}`} description="PSIQUE colabora con pastores mediante capacitación en consejería bíblica y el acompañamiento de personas referidas por la iglesia local.">
+  <section class="section">
+    <div class="container stack">
+      <p class="eyebrow">Para pastores</p>
+      <h1 style="font-size: var(--fs-h2);">Al servicio de la iglesia local</h1>
+      <p class="lead wide-text">PSIQUE es un ministerio de consejería bíblica al servicio de la iglesia local.</p>
+      <p style="color: var(--muted); margin-bottom: 0;">Somos conscientes de los desafíos que implica el ministerio pastoral y de la responsabilidad de cuidar espiritualmente a las personas. Por eso, queremos colaborar con los pastores mediante la capacitación en consejería bíblica y el acompañamiento de personas que necesitan orientación a la luz de las Escrituras.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <article class="card stack">
+        <h2 style="font-size: var(--fs-h3);">Capacitación en consejería bíblica para la iglesia local</h2>
+        <p style="color: var(--muted); margin-bottom: 0;">Creemos que la tarea de aconsejar bíblicamente es parte del ministerio de la iglesia local. Por eso, ofrecemos talleres y cursos de capacitación para pastores, líderes y otros miembros de la iglesia que desean profundizar en la consejería bíblica y seguir desarrollando sus habilidades para acompañar a las personas con la verdad de la Palabra de Dios.</p>
+        <p style="color: var(--muted); margin-bottom: 0;">Si te interesa organizar un taller en tu iglesia o conocer más sobre estas opciones de capacitación, nos gustaría conversar contigo.</p>
+      </article>
+      <article class="card stack">
+        <h2 style="font-size: var(--fs-h3);">Consejería bíblica en colaboración con el pastor</h2>
+        <p style="color: var(--muted); margin-bottom: 0;">Sabemos que el ministerio pastoral demanda tiempo y atención, y que no siempre es posible acompañar personalmente a todas las personas que buscan ayuda. Por eso, ofrecemos consejería bíblica a personas referidas por pastores, ya sean miembros de su congregación o personas que acuden a ellos en busca de orientación.</p>
+        <p style="color: var(--muted); margin-bottom: 0;">Durante el proceso, podemos mantener informado al pastor mediante reportes de seguimiento, con la autorización de la persona aconsejada.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" style="text-align: center;">
+    <div class="container" style="max-width: 620px;">
+      <h2>Estamos al servicio de la iglesia local</h2>
+      <p class="lead" style="margin: 16px auto 32px;">Si eres pastor y consideras que PSIQUE puede ser un apoyo para tu iglesia, nos gustaría conocer tus necesidades y explorar juntos una forma de colaboración.</p>
+      <a class="btn btn-primary" href={contact} target="_blank" rel="noopener">Conversemos</a>
+    </div>
+  </section>
+</Base>
