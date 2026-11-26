@@ -1,6 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import { site } from '../site.config';
+import FacebookIcon from '../assets/icons/facebook.svg';
+import WhatsAppIcon from '../assets/icons/whatsapp.svg';
 
 const shareText = 'PSIQUE · Consejería bíblica en español';
 const enc = encodeURIComponent;
@@ -8,7 +10,7 @@ const collaborate = `${site.whatsapp}?text=${enc('Hola, me gustaría proponer un
 ---
 <Base title={`Sé parte de esta visión · ${site.name}`} description="Formas de apoyar a PSIQUE: compartir, organizar un taller de consejería bíblica, apoyar económicamente u orar por este ministerio.">
   <section class="section">
-    <div class="container stack">
+    <div class="container stack intro">
       <p class="eyebrow">Nuestra visión</p>
       <h1 style="font-size: var(--fs-h2);">Sé parte de esta visión</h1>
       <p class="lead wide-text">Creemos que la iglesia local tiene un papel fundamental en el cuidado espiritual de las personas. En PSIQUE queremos contribuir a esta labor mediante la consejería bíblica, la capacitación y la colaboración con iglesias y personas que comparten esta convicción.</p>
@@ -23,8 +25,8 @@ const collaborate = `${site.whatsapp}?text=${enc('Hola, me gustaría proponer un
         <p>Quizá conoces a alguien que está atravesando una dificultad y necesita consejería bíblica. Puedes comenzar orando por esa persona y ayudándole a conocer nuestros servicios de acompañamiento bíblico, centrados en el evangelio de Jesucristo.</p>
         <div><button class="btn btn-primary" type="button" id="share">Compartir PSIQUE</button></div>
         <div class="row share-links" id="share-links" hidden>
-          <a class="btn btn-secondary" href={`https://wa.me/?text=${enc(`${shareText} ${site.url}`)}`} target="_blank" rel="noopener">WhatsApp</a>
-          <a class="btn btn-secondary" href={`https://www.facebook.com/sharer/sharer.php?u=${enc(site.url)}`} target="_blank" rel="noopener">Facebook</a>
+          <a class="btn btn-secondary" href={`https://wa.me/?text=${enc(`${shareText} ${site.url}`)}`} target="_blank" rel="noopener"><WhatsAppIcon class="icon" aria-hidden="true" />WhatsApp</a>
+          <a class="btn btn-secondary" href={`https://www.facebook.com/sharer/sharer.php?u=${enc(site.url)}`} target="_blank" rel="noopener"><FacebookIcon class="icon" aria-hidden="true" />Facebook</a>
           <a class="btn btn-secondary" href={`mailto:?subject=${enc(shareText)}&body=${enc(site.url)}`}>Correo</a>
           <button class="btn btn-secondary" type="button" id="copy">Copiar enlace</button>
         </div>

@@ -18,7 +18,7 @@ Vivir en Estados Unidos como hispano tiene un costo emocional del que se habla p
 
 Las sesiones en Psique Bíblica son en español, por Google Meet, con un consejero con formación en psicología y teología. No necesitas seguro médico. Trabajamos desde la Palabra de Dios, no al margen de ella. Y la videollamada elimina la distancia: da lo mismo que estés en Texas, California, Florida, Carolina del Norte o Nueva York.
 
-Los horarios se ajustan a tu zona horaria. El pago se hace con tarjeta de débito o crédito antes de la sesión. Recibes el enlace por correo y WhatsApp.
+Los horarios se ajustan a tu zona horaria. El pago se hace con tarjeta de débito o crédito antes de la sesión. Recibes el enlace por correo y por mensaje de texto (SMS) o WhatsApp.
 
 ## ¿Qué temas se atienden?
 

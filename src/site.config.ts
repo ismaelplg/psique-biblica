@@ -12,5 +12,6 @@ export const site = {
   gofundme: 'https://gofund.me/b292302f9', // ponytail: empty string hides the GoFundMe button on /apoyar/
   facebook: 'https://www.facebook.com/pastor.mariogzz',
   instagram: 'https://www.instagram.com/pastor.mariogzz',
+  tiktok: '', // ponytail: paste the profile URL here; until then the icon shows but isn't clickable
   ogImage: '/og.png',
 };
